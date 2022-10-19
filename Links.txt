@@ -1,0 +1,45 @@
+Slip A
+
+1.Create a Application to perform Following 
+* Finding Factorial
+* Money Conversion
+* Cube of given Number
+* Generate Fibonacci Series
+
+Link :- https://www.youtube.com/watch?v=chGeH9YgclI&list=PLBoI5R25ltIeV1DxjzhfgdS3XiPeisdtG&index=6
+
+2.Demonstrate the use of Calender Controls
+Link :-https://www.youtube.com/watch?v=Pk5rg-FBJig&list=PLBoI5R25ltIeV1DxjzhfgdS3XiPeisdtG&index=8
+
+Slip B
+
+1.Display the Number of visitors on a goven web page.
+Link :- https://www.youtube.com/watch?v=-YN5_FZ2H_8&list=PLBoI5R25ltIeV1DxjzhfgdS3XiPeisdtG&index=28
+
+2.Create a registration form having text fields .....
+Link :- https://www.youtube.com/watch?v=ctD2vVMtuCM&list=PLBoI5R25ltIeV1DxjzhfgdS3XiPeisdtG&index=29
+
+Slip C
+
+1.Create web form to demonstrate use of User Control...
+Link :- https://www.youtube.com/watch?v=jSMEfDh1qMs&list=PLBoI5R25ltIeV1DxjzhfgdS3XiPeisdtG&index=8
+
+2.Create Webform to demonstrator use of Ad rotator
+Link :-
+https://www.youtube.com/watch?v=UBVmw2mTYzM
+
+
+
+
+Extra
+https://www.youtube.com/watch?v=cAguVBZZI94&list=PLBoI5R25ltIeV1DxjzhfgdS3XiPeisdtG&index=24
+
+https://youtu.be/N3AjdDUl73E
+
+https://youtu.be/30b2nkMDiM8
+
+https://youtu.be/kRm-F7ltOx8
+
+https://youtu.be/WUKWGjFbH0o
+
+https://youtu.be/Lp_TL2SHHsE
