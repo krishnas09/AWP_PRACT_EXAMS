@@ -1,0 +1,104 @@
+Step - 1 Extract and Paste the entire RadioButton Folder ==> in Documents/Visual Studio 2010/Projects
+Step - 2 Open VS code 2010 ==> Go to File and Open RadioButton Folder ==> Select RadioButton File (not Folder)
+Step - 3 Open Solution Explorer and Select RadioButton.aspx and Run the file.
+
+Codes to Write :-
+*First We have to Create a Web Form Name - RadioButton.aspx
+
+write the code ..
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RadioButton.aspx.cs" Inherits="RadioButton.RadioButton" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <asp:RadioButton ID="RadioButton1" runat="server" AutoPostBack="True" 
+            Font-Names="Jokerman" GroupName="g1" Text="Jokerman" 
+            oncheckedchanged="fontstyle" />
+        <asp:RadioButton ID="RadioButton2" runat="server" AutoPostBack="True" 
+            Font-Names="Algerian" GroupName="g1" 
+           Text="Algerian" oncheckedchanged="fontstyle" />
+        <asp:RadioButton ID="RadioButton3" runat="server" AutoPostBack="True" 
+            Font-Names="Harrington" GroupName="g1" 
+            Text="Harrington" oncheckedchanged="fontstyle" />
+        <br />
+        <br />
+        <asp:RadioButton ID="RadioButton4" runat="server" AutoPostBack="True" 
+            GroupName="g2" Text="10" oncheckedchanged="fontsize" />
+        <asp:RadioButton ID="RadioButton5" runat="server" AutoPostBack="True" 
+            GroupName="g2" Text="20" oncheckedchanged="fontsize" />
+        <asp:RadioButton ID="RadioButton6" runat="server" AutoPostBack="True" 
+            GroupName="g2" Text="30" oncheckedchanged="fontsize" />
+        <br />
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Hello World!!!"></asp:Label>
+    
+        <br />
+        <br />
+        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" 
+            onselectedindexchanged="DropDownList1_SelectedIndexChanged">
+            <asp:ListItem Value="91">INDIA</asp:ListItem>
+            <asp:ListItem Value="98">NEPAL</asp:ListItem>
+            <asp:ListItem Value="62">CHINA</asp:ListItem>
+            <asp:ListItem Value="1">USA</asp:ListItem>
+            <asp:ListItem Value="99">PAKISTAN</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    
+    </div>
+    </form>
+</body>
+</html>
+
+
+* After that we need to go to design page and double click on anywhere and
+write the code ....
+
+SOURCE CODE :
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace RadioButton
+{
+    public partial class RadioButton : System.Web.UI.Page
+    {
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void fontstyle(object sender, EventArgs e)
+        {
+            Label1.Font.Name = ((RadioButton)sender).Text;
+        }
+
+        protected void fontsize(object sender, EventArgs e)
+        {
+            string Text;
+            Label1.Font.Size = Convert.ToInt32(((RadioButton)sender).Text);
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TextBox1.Text = DropDownList1.SelectedValue.ToString();
+        }
+
+
+    }
+}
+
+*Run the file

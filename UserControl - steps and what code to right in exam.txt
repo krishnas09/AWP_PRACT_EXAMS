@@ -1,0 +1,44 @@
+Step - 1 Extract and Paste the entire UserControl Folder ==> in Documents/Visual Studio 2010/Projects
+Step - 2 Open VS code 2010 ==> Go to File and Open UserControl Folder ==> Select UserControl File (not Folder)
+Step - 3 Open Solution Explorer and Select UserControl.aspx and Run the file.
+
+Codes to Write :-
+*First We have to Create a new Web User Control giving the name footer.ascx
+//write the Following code in it
+
+SOURCE CODE : 
+
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="footer.ascx.cs" Inherits="UserControl.usercontrol" %>
+<div>&#169 copyright reserved Solutions Ltd.</div>
+
+* Second We are creating a web form name - UserControl.aspx
+
+// write the Following code in it
+
+SOURCE CODE : 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserControl.aspx.cs" Inherits="UserControl.UserControl" %>
+
+<%@ Register src="footer.ascx" tagname="footer" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        Ketan Solutions Ltd.<br />
+        <br />
+        This is a Random Paragraph. Program of User Control.<br />
+        <br />
+        <uc1:footer ID="footer1" runat="server" />
+    
+    </div>
+    </form>
+</body>
+</html>
+
+*Run the file

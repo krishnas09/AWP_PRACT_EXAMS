@@ -1,0 +1,66 @@
+Step - 1 Extract and Paste the entire Xmlstylesheet Folder ==> in Documents/Visual Studio 2010/Projects
+Step - 2 Open VS code 2010 ==> Go to File and Open Xmlstylesheet Folder ==> Select Xmlstylesheet File (not Folder)
+Step - 3 Open Solution Explorer and Select Xmlstylesheet.xml and Run the file.
+
+Codes to Write :-
+*First We have to Create a XML file having Name - Xmlstylesheet.xml
+
+write the code ..
+SOURCE CODE : 
+
+<?xml version="1.0" encoding="utf-8" ?> 
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<students>
+  <strudent>
+    <rollno>1</rollno>
+    <sname>Reza Abbas</sname>
+  </strudent>
+
+  <strudent>
+    <rollno>123</rollno>
+    <sname>Dhiraj</sname>
+  </strudent>
+
+  <strudent>
+    <rollno>110</rollno>
+    <sname>Gouse</sname>
+  </strudent>
+
+  <strudent>
+    <rollno>48</rollno>
+    <sname>Anonymous</sname>
+  </strudent>
+</students>
+
+* We have to Create a XSTL File name ==> style.xslt
+
+write the code.....
+
+SOURCE CODE :
+
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/">
+      <html>
+        <head>
+        </head>
+        <body>
+          <table border="2">
+            <xsl:for-each select="students/student">
+              <tr>
+                <td>
+                  <xsl:value-of select="sname"/>
+                </td>
+                <td>
+                  <xsl:value-of select="rollno"/>
+                </td>
+              </tr>
+            </xsl:for-each>
+          </table>
+        </body>
+      </html>
+    </xsl:template>
+</xsl:stylesheet>
+
+
+*Run the file Xmlstylesheet.xml

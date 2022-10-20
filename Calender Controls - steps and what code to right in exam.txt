@@ -1,0 +1,155 @@
+Step - 1 Extract and Paste the entire Calender Folder ==> in Documents/Visual Studio 2010/Projects
+Step - 2 Open VS code 2010 ==> Go to File and Open Registration Folder ==> Select Calender File (not Folder)
+Step - 3 Open Solution Explorer and Select Calender.aspx and Run the file.
+
+Codes to Write :-
+*First We have Create a Web Form Name - Calender.aspx
+
+write the code ..
+
+SOURCE CODE : 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Calender.aspx.cs" Inherits="Calender.Calender" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="#FFFFCC" 
+            BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" 
+            Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" 
+            ondayrender="Calendar1_DayRender" 
+            onselectionchanged="Calendar1_SelectionChanged" ShowGridLines="True" 
+            Width="220px">
+            <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+            <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+            <OtherMonthDayStyle ForeColor="#CC9966" />
+            <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+            <SelectorStyle BackColor="#FFCC66" />
+            <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" 
+                ForeColor="#FFFFCC" />
+            <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+        </asp:Calendar>
+        <br />
+        <br />
+        <asp:Calendar ID="Calendar2" runat="server" BackColor="#FFFFCC" 
+            BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" 
+            Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" 
+            ondayrender="Calendar2_DayRender" 
+            onselectionchanged="Calendar2_SelectionChanged" ShowGridLines="True" 
+            Width="220px">
+            <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+            <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+            <OtherMonthDayStyle ForeColor="#CC9966" />
+            <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+            <SelectorStyle BackColor="#FFCC66" />
+            <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" 
+                ForeColor="#FFFFCC" />
+            <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+        </asp:Calendar>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
+            Text="Difference" />
+        <br />
+        <br />
+        <asp:Label ID="Label1" runat="server"></asp:Label>
+    
+    </div>
+    </form>
+</body>
+</html>
+
+
+*Double Click anywhere in Design Page and you will redirected to Calender.aspx.cs
+write the code...
+
+SOURCE CODE : 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Calender
+{
+    public partial class Calender : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date.Year == 2022 && e.Day.Date.Month == 10 && e.Day.Date.Day == 14) 
+            {
+                Label l1 = new Label();
+                l1.Text = "<br>Navratri";
+                e.Cell.Controls.Add(l1);
+                e.Cell.BackColor = System.Drawing.Color.Red;
+            }
+            if (e.Day.Date.Year == 2022 && e.Day.Date.Month == 10 && e.Day.Date.Day == 15)
+            {
+                e.Cell.BackColor = System.Drawing.Color.Red;
+            }
+            if (e.Day.Date.Year == 2022 && e.Day.Date.Month == 10 && e.Day.Date.Day == 16)
+            {
+                e.Cell.BackColor = System.Drawing.Color.Red;
+            }
+
+            if (e.Day.Date.Year == 2022 && e.Day.Date.Month == 10 && e.Day.Date.Day == 20)
+            {
+                Label l1 = new Label();
+                l1.Text = "<br>AWP Practicals";
+                e.Cell.Controls.Add(l1);
+            }
+        }
+
+        protected void Calendar2_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date.Year == 2022 && e.Day.Date.Month == 10 && e.Day.Date.Day == 24)
+            {
+                Label l1 = new Label();
+                l1.Text = "<br>Diawali";
+                e.Cell.Controls.Add(l1);
+                e.Cell.BackColor = System.Drawing.Color.Red;
+            }
+
+            if (e.Day.Date.Year == 2022 && e.Day.Date.Month == 10 && e.Day.Date.Day == 22)
+            {
+                Label l1 = new Label();
+                l1.Text = "<br>Happy Bday!!";
+                e.Cell.Controls.Add(l1);
+            }
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            Calendar1.SelectedDayStyle.ForeColor = System.Drawing.Color.Red;
+            Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Yellow;
+        }
+
+        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
+        {
+            Calendar2.SelectedDayStyle.BackColor = System.Drawing.Color.Blue;
+            Calendar2.SelectedDayStyle.ForeColor = System.Drawing.Color.Green;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            TimeSpan ts = Calendar1.SelectedDate - Calendar2.SelectedDate;
+            Label1.Text = ts.TotalDays.ToString();
+        }
+    }
+}
+
+*Run the file

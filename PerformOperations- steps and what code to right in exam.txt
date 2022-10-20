@@ -1,0 +1,122 @@
+Step - 1 Extract and Paste the entire PerformOperations Folder ==> in Documents/Visual Studio 2010/Projects
+Step - 2 Open VS code 2010 ==> Go to File and Open PerformOperations Folder ==> Select PerformOperations File (not Folder)
+Step - 3 Open Solution Explorer and Select PerformOperations.aspx and Run the file.
+
+Codes to Write :-
+*First We have Create a Web Form Name - PerformOperations.aspx
+
+write the code ..
+
+SOURCE CODE : 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PerformOperations.aspx.cs" Inherits="PerformOperations.PerformOperations" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <asp:Label ID="Label1" runat="server" Text="Enter Input : "></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
+            Text="FACTORIAL" />
+        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" 
+            Text="USD to INR" />
+        <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="CUBE" />
+        <asp:Button ID="Button4" runat="server" onclick="Button4_Click" 
+            Text="FIBONACCI" />
+        <br />
+        <br />
+        <asp:Label ID="Label2" runat="server"></asp:Label>
+    
+    </div>
+    </form>
+</body>
+</html>
+
+
+* After that go to Design page and double click anywhere you will redirect in PerformOperations.aspx.cs
+write the code : 
+SOURCE CODE : 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace PerformOperations
+{
+    public partial class PerformOperations : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public string Factorial(double num) 
+        {
+            double fact = 1;
+            for (int i = 1; i <= num; i++) 
+            {
+                fact = fact * i;
+            }
+            return fact.ToString();
+        }
+
+        public string USDtoINR(double num) 
+        {
+            return (num * 80).ToString();
+        }
+
+        public string Cube(double num)
+        {
+            return (num * num * num).ToString();
+        }
+
+        public string Fibonacci(double num)
+        {
+            string fseries;
+            double num1 = 0, num2 = 1;
+            double num3;
+            fseries = num1 + " , " + num2 + " , ";
+            for (int i = 2; i <= num; i++) 
+            {
+                num3 = num1 + num2;
+                fseries = fseries + num3 + " , ";
+                num1 = num2;
+                num2 = num3;
+            }
+            return fseries;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Label2.Text = Factorial(Convert.ToInt32(TextBox1.Text));
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Label2.Text = USDtoINR(Convert.ToInt32(TextBox1.Text));
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Label2.Text = Cube(Convert.ToInt32(TextBox1.Text));
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Label2.Text = Fibonacci(Convert.ToInt32(TextBox1.Text));
+        }
+    }
+}
+
+*Run the file

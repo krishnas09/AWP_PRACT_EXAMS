@@ -1,0 +1,75 @@
+Step - 1 Extract and Paste the entire NumberofVisitors Folder ==> in Documents/Visual Studio 2010/Projects
+Step - 2 Open VS code 2010 ==> Go to File and Open NumberofVisitors Folder ==> Select NumberofVisitors File (not Folder)
+Step - 3 Open Solution Explorer and Select NumberofVisitors.aspx and Run the file.
+
+Codes to Write :-
+*First We have to open Solution Explorer and Open the Global.asax
+//write the Following code in it
+
+SOURCE CODE : 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.SessionState;
+
+namespace NumberofVisitors
+{
+    public class Global : System.Web.HttpApplication
+    {
+
+        void Application_Start(object sender, EventArgs e)
+        {
+         
+        }
+
+        void Application_End(object sender, EventArgs e)
+        {
+         
+        }
+
+        void Application_Error(object sender, EventArgs e)
+        {
+       
+        }
+
+        void Session_Start(object sender, EventArgs e)
+        {
+            Application.Lock();
+            Application["usercnt"] = Convert.ToInt32(Application["usercnt"])+1;
+            Application.UnLock();
+        }
+
+        void Session_End(object sender, EventArgs e)
+        {
+      
+        }
+
+    }
+}
+
+
+*Second We have to Create a new Web Form give name = NumberofVisitors.aspx
+Go to design double click on anywhere and you will redirected to NumberofVisitors.aspx.cs
+//write the Following code in it
+SOURCE CODE :-
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace NumberofVisitors
+{
+    public partial class NumberofVisitors : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Write(Application["usercnt"].ToString());
+        }
+    }
+}

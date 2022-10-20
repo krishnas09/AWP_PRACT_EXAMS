@@ -1,0 +1,75 @@
+Step - 1 Extract and Paste the entire Adrotator Folder ==> in Documents/Visual Studio 2010/Projects
+Step - 2 Open VS code 2010 ==> Go to File and Open Adrotator Folder ==> Select Adrotator File (not Folder)
+Step - 3 Open Solution Explorer and Select Adrotator.aspx and Run the file.
+
+Codes to Write :-
+* First We have to copy Four jpg files to the folder
+* Second Creating a XML File name - Adrotator.xml
+
+//Write the Code of Adrotator.xml
+
+*SOURCE CODE : 
+
+<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>Any.jfif</ImageUrl>
+    <NavigateUrl>http://www.google.com</NavigateUrl>
+    <AlternateText>Anonymouse, Hackers!!!</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>Anonymous</Keyword>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>Cat.jfif</ImageUrl>
+    <NavigateUrl>http://www.google.com</NavigateUrl>
+    <AlternateText>Cat, BagadBilla!!!</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>Cat</Keyword>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>Dog.jpg</ImageUrl>
+    <NavigateUrl>http://www.google.com</NavigateUrl>
+    <AlternateText>Cute Dog, Dog!!!</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>Dog</Keyword>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>Lion.jpg</ImageUrl>
+    <NavigateUrl>http://www.google.com</NavigateUrl>
+    <AlternateText>Lion King, Simbha!!!</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>Lion</Keyword>
+  </Ad>
+</Advertisements>
+
+* Second Creating a Webform name Adrotator.aspx and from toolbox we are adding AdRotator
+* In property of AdRotator AdvertisementFile ==> Select ==>Adrotator.xml
+
+//Write the Code of Adrotator.aspx
+
+* SOURCE CODE : 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Adrotator.aspx.cs" Inherits="Adrotator.Adrotator" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <asp:AdRotator ID="AdRotator1" runat="server" 
+            AdvertisementFile="~/Adrotator.xml" />
+    
+    </div>
+    </form>
+</body>
+</html>
+
+* Run the file
